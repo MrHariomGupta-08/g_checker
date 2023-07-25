@@ -1,0 +1,21 @@
+pip install language-tool-python
+
+import language_tool_python
+
+def grammar_checker(text):
+    # Initialize the LanguageTool tool
+    tool = language_tool_python.LanguageTool('en-US')
+
+    # Get the list of grammar and style errors in the text
+    errors = tool.check(text)
+
+    # Display the corrected text
+    corrected_text = language_tool_python.correct(text, errors)
+    return corrected_text
+
+if __name__ == "__main__":
+    # Example usage
+    text = "He go to the park yesterday."
+    corrected_text = grammar_checker(text)
+    print("Original Text:", text)
+    print("Corrected Text:", corrected_text)
